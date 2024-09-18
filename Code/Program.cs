@@ -1,9 +1,4 @@
-﻿using JiebaNet.Analyser;
-using JiebaNet.Segmenter;
-using JiebaNet.Segmenter.PosSeg;
-using System.Diagnostics;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿using System.Diagnostics;
 
 namespace PicKeyFinder.Code
 {
