@@ -1,17 +1,15 @@
 ﻿using JiebaNet.Analyser;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
 
 namespace PicKeyFinder.Code
 {
     internal class TextProcess
     {
-        // Output dictionary of keywords and their weights.
+        // The dictionary of keywords and their weights.
         Dictionary<string, double> wordWeights = new Dictionary<string, double>();
         // Allowed parts of speech (nouns only)
         IEnumerable<string> allowedPos = new List<string> { "n" };
 
-        // 提取名词并标记权重
+        // Extract nouns and label them with weights
         public Dictionary<string, double> GetKeywords(string inputText)
         {
             Reset();
