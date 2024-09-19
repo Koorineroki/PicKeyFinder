@@ -2,11 +2,11 @@
 This is the code for the Mars Base project, in which users provide corresponding pictures when communicating with Ai.
 
 ## Update Log
--R6.09.13：  
+- R6.09.13：  
 Completed Demo and passed verification  
--R6.09.18：  
+- R6.09.18：  
 Upload the project to GitHub  
--R6.09.19：  
+- R6.09.19：  
 Move **Analysis of time-consuming methods** to **DebugTools** Class  
 After testing, I found that GayHub's ReadMe.md requires pressing the space bar twice to wrap the line.
 
