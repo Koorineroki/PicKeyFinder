@@ -9,13 +9,10 @@
             while (true)
             {
                 Console.WriteLine("请输入对话内容。");
-                var userDiscourse = Console.ReadLine() ?? string.Empty;
+                string userDiscourse = Console.ReadLine() ?? string.Empty;
 
                 // HACK: 临时方案，在未来需要改用对象池进行对象的复用。
-                long aTime;
-                var wordWeights = DebugTools.RunWithTimer(new TextProcess().GetKeywords, userDiscourse, out aTime);
-
-                DebugTools.OutputMessage(userDiscourse.Length, aTime, wordWeights);
+                new TextProcess().GetKeywords(userDiscourse, false);
             }
         }
     }
