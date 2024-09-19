@@ -15,20 +15,7 @@
                 long aTime;
                 var wordWeights = DebugTools.RunWithTimer(new TextProcess().GetKeywords, userDiscourse, out aTime);
 
-                // 停止计时
-                Console.WriteLine($"处理文字量：{userDiscourse.Length}");
-                Console.WriteLine($"执行时间: {aTime} 毫秒");
-
-                // OutPut
-                Console.WriteLine("提取的关键词及其权重并排序：");
-                foreach (var word in wordWeights)
-                {
-                    Console.WriteLine($"【词语】：{word.Key}，\t【权重】：{word.Value}");
-                }
-
-                // CallBack
-                Console.WriteLine("====================================================");
-                Console.WriteLine();
+                DebugTools.OutputMessage(userDiscourse.Length, aTime, wordWeights);
             }
         }
     }
