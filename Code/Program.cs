@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-namespace PicKeyFinder.Code
+﻿namespace PicKeyFinder.Code
 {
     internal class Program
     {
