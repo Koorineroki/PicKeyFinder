@@ -38,6 +38,7 @@ namespace PicKeyFinder.Code
             return re;
         }
 
+
         // NOTE:
         // This code is used for testing during development
         // And can **ONLY** be used to output "分词后的结果"

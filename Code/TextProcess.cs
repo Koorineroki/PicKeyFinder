@@ -26,7 +26,6 @@ namespace PicKeyFinder.Code
             foreach (var keyword in keywords) wordWeights.Add(keyword.Word, keyword.Weight);
             return wordWeights;
         }
-
         // Public method: 
         // Added debug mode based on the original method
         public Dictionary<string, double> GetKeywords(string inputText, bool debug = false)
