@@ -8,7 +8,8 @@ Completed Demo and passed verification
 Upload the project to GitHub  
 - R6.09.19：  
 Move **Analysis of time-consuming methods** to **DebugTools** Class  
-After testing, I found that GayHub's ReadMe.md requires pressing the space bar twice to wrap the line.
+After testing, I found that GayHub's ReadMe.md requires pressing the space bar twice to wrap the line.  
+Move **Debug info function** to **DebugTools** Class 
 
 ## Third-party libraries used
 - **[jieba.NET](https://github.com/anderscui/jieba.NET)** - Licensed under the MIT License.
