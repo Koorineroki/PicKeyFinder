@@ -43,7 +43,7 @@ namespace PicKeyFinder.Code
         // And can **ONLY** be used to output "分词后的结果"
         // HACK:
         // Since WriteLine is not thread-safe, this method cannot be used on multiple threads.
-        public static void OutputMessage(int textLength, long useTime, Dictionary<string,double> wordWeights)
+        public static void OutputMessage(int textLength, long useTime, Dictionary<string, double> wordWeights)
         {
             Console.WriteLine($"处理文字量：{textLength}");
             Console.WriteLine($"执行时间: {useTime} 毫秒");
