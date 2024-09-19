@@ -7,24 +7,19 @@ namespace PicKeyFinder.Code
         static void Main(string[] args)
         {
             // JiebaNet.Segmenter.ConfigManager.ConfigFileBaseDir = @"F:\Code\C#\PicKeyFinder\Resources";
-            Stopwatch stopwatch = new Stopwatch();
 
             while (true)
             {
                 Console.WriteLine("请输入对话内容。");
                 var userDiscourse = Console.ReadLine() ?? string.Empty;
 
-                // 处理前重置并启动计时器
-                stopwatch.Reset();
-                stopwatch.Start();
-
                 // HACK: 临时方案，在未来需要改用对象池进行对象的复用。
-                var wordWeights = new TextProcess().GetKeywords(userDiscourse);
+                long aTime;
+                var wordWeights = DebugTools.RunWithTimer(new TextProcess().GetKeywords, userDiscourse, out aTime);
 
                 // 停止计时
-                stopwatch.Stop();
                 Console.WriteLine($"处理文字量：{userDiscourse.Length}");
-                Console.WriteLine($"执行时间: {stopwatch.ElapsedMilliseconds} 毫秒");
+                Console.WriteLine($"执行时间: {aTime} 毫秒");
 
                 // OutPut
                 Console.WriteLine("提取的关键词及其权重并排序：");
