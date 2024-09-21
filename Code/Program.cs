@@ -12,7 +12,7 @@
                 string userDiscourse = Console.ReadLine() ?? string.Empty;
 
                 // HACK: 临时方案，在未来需要改用对象池进行对象的复用。
-                new TextProcess().GetKeywords(userDiscourse, false);
+                new TextProcess().GetKeywords(userDiscourse, true);
             }
         }
     }

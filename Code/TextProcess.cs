@@ -20,6 +20,8 @@ namespace PicKeyFinder.Code
         private Dictionary<string, double> GetKeywords(string inputText)
         {
             Reset();
+            // HACK:
+            // 需要将TfidfExtractor作为类成员。否则重复声明销毁浪费资源
             var extractor = new TfidfExtractor();
             var keywords = extractor.ExtractTagsWithWeight(inputText, 5, allowedPos);
 
