@@ -18,10 +18,11 @@ Rename TextProcess to UtteranceProcess.
 In UtteranceProcess, the dictionary used to store words and weights. I used List instead and removed the use of foreach, which eventually saved about 200ms in word segmentation.  
 Introduce Lexi2PEngine Class as an encapsulation of details when calling functions in a single thread(unfinished).  
 Introduce SynonymFilter Class to match the obtained keywords with the vocabulary (unfinished).  
-Updated the functionality of SynonymFilters, added a Filter method for filtering words, and made the PickWords method more concise.
-  
+Updated the functionality of SynonymFilters, added a Filter method for filtering words, and made the PickWords method more concise.  
+Implemented disk loading of dictionaries  
+
+
 ## Plan To Do  
-- Migrate "synonymDictionary" in SynonymFilter Class to file format.
 - Logger.  
 - Support input commands.  
 - Image Selector  
