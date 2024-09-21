@@ -24,7 +24,6 @@ Implemented disk loading of dictionaries
 
 ## Plan To Do  
 - Logger.  
-- Support input commands.  
 - Image Selector  
 - http communication  
 
