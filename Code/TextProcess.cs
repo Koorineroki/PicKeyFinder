@@ -4,6 +4,9 @@ namespace PicKeyFinder.Code
 {
     internal class TextProcess
     {
+        // Add extractor
+        TfidfExtractor extractor = new TfidfExtractor();
+
         // The dictionary of keywords and their weights.
         Dictionary<string, double> wordWeights = new Dictionary<string, double>();
         // Allowed parts of speech (nouns only)
@@ -20,9 +23,6 @@ namespace PicKeyFinder.Code
         private Dictionary<string, double> GetKeywords(string inputText)
         {
             Reset();
-            // HACK:
-            // 需要将TfidfExtractor作为类成员。否则重复声明销毁浪费资源
-            var extractor = new TfidfExtractor();
             var keywords = extractor.ExtractTagsWithWeight(inputText, 5, allowedPos);
 
             foreach (var keyword in keywords) wordWeights.Add(keyword.Word, keyword.Weight);
