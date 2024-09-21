@@ -6,7 +6,7 @@ namespace PicKeyFinder.Code
     internal class Lexi2PEngine
     {
         private UtteranceProcess processEngine = new UtteranceProcess();
-        private SynonymFilter synonymFilter = new SynonymFilter();
+        private SynonymFilters synonymFilter = new SynonymFilters();
 
         // Start Execute
         public string Execute(string utterance)
