@@ -1,6 +1,7 @@
-﻿using System.Diagnostics;
+﻿using JiebaNet.Analyser;
+using System.Diagnostics;
 
-namespace PicKeyFinder.Code
+namespace PicKeyFinder.Code.Modules
 {
     internal static class DebugTools
     {
@@ -44,19 +45,15 @@ namespace PicKeyFinder.Code
         // And can **ONLY** be used to output "分词后的结果"
         // HACK:
         // Since WriteLine is not thread-safe, this method cannot be used on multiple threads.
-        public static void OutputMessage(int textLength, long useTime, Dictionary<string, double> wordWeights)
+        public static void OutputMessage(int textLength, long useTime, List<WordWeightPair> wordWeights)
         {
             Console.WriteLine($"处理文字量：{textLength}");
-            Console.WriteLine($"执行时间: {useTime} 毫秒");
+            Console.WriteLine($"分词所用时间: {useTime} 毫秒");
             Console.WriteLine("提取的关键词及其权重并排序：");
             foreach (var word in wordWeights)
             {
-                Console.WriteLine($"【词语】：{word.Key}，\t【权重】：{word.Value}");
+                Console.WriteLine($"【词语】：{word.Word}，\t【权重】：{word.Weight}");
             }
-
-            // Context Segmentation
-            Console.WriteLine("====================================================");
-            Console.WriteLine();
         }
     }
 }
