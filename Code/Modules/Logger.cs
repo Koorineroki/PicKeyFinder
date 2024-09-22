@@ -4,6 +4,7 @@ namespace PicKeyFinder.Code.Modules
 {
     public enum LogLevel
     {
+        None,
         Info,
         Warning,
         Error
@@ -11,15 +12,21 @@ namespace PicKeyFinder.Code.Modules
 
     internal class Logger
     {
-        private ConcurrentQueue<(LogLevel Level, string Message)> logList = new();
+        private ConcurrentQueue<(LogLevel Level, string Message, string FileName)> logList = new();
         private bool isLogging = false;
         private string logPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs");
-        private string logFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs", "Log.txt");
 
         // LogMessage
         public void LogSystemMessage(LogLevel level, string message)
         {
-            logList.Enqueue((level, message));
+            logList.Enqueue((level, message, "SystemLogs.txt"));
+            _ = StartLogging();
+        }
+
+        // LogMessage
+        public void LogMessage(string message, string fileName)
+        {
+            logList.Enqueue((LogLevel.None, message, fileName));
             _ = StartLogging();
         }
 
@@ -31,17 +38,23 @@ namespace PicKeyFinder.Code.Modules
 
             while (logList.TryDequeue(out var logEntry))
             {
-                await WriteLogToFile(logEntry.Level, logEntry.Message);
+                await WriteLogToFile(logEntry.Level, logEntry.Message, logEntry.FileName);
             }
 
             isLogging = false;
         }
 
         // Start log message in File
-        private async Task WriteLogToFile(LogLevel level, string message)
+        private async Task WriteLogToFile(LogLevel level, string message, string filename)
         {
-            string logLine = $"{DateTime.Now}: 【{level}]】{message}{Environment.NewLine}";
             Directory.CreateDirectory(logPath);
+            var logFilePath = Path.Combine(logPath, filename);
+
+            string logLine;
+            if (level != LogLevel.None) logLine = $"{DateTime.Now}: 【{level}】{message}{Environment.NewLine}";
+            else logLine = $"{message}{Environment.NewLine}";
+
+
             await File.AppendAllTextAsync(logFilePath, logLine);
         }
     }

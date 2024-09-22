@@ -8,13 +8,10 @@ namespace PicKeyFinder.Code
         static void Main(string[] args)
         {
             Lexi2PEngine engine = new Lexi2PEngine();
-
-            //JiebaNet.Segmenter.ConfigManager.ConfigFileBaseDir = @"\root\test2\Resources";
             var logger = new Logger();
+
             while (true)
             {
-                logger.LogSystemMessage(LogLevel.Info, "新用户输入");
-
                 Console.WriteLine("请输入对话内容。");
                 string userDiscourse = Console.ReadLine() ?? string.Empty;
 
