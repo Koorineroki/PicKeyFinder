@@ -5,6 +5,11 @@ namespace PicKeyFinder.Code.Modules
 {
     internal static class DebugTools
     {
+        public enum Level
+        {
+
+        }
+
         // Run the method And Timing
         // No parameter And No return
         public static void RunWithTimer(Action action, out long executionTime)

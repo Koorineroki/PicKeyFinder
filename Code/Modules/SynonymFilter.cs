@@ -10,7 +10,9 @@ namespace PicKeyFinder.Code.Modules
         public SynonymFilters()
         {
             // Load synonymDictionary form Json
-            synonymDictionary = new Json2Dictionary().LoadDictionary("SynonymDict\\synonyms.json");
+            string path = Directory.GetCurrentDirectory();
+            path = Path.Combine(path, "SynonymDict", "synonyms.json");
+            synonymDictionary = new Json2Dictionary().LoadDictionary(path);
         }
 
         // Filter word(s) according to synonymDictionary 
