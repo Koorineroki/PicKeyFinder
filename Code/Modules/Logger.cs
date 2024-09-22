@@ -11,16 +11,20 @@ namespace PicKeyFinder.Code.Modules
 
     internal class Logger
     {
-        private static ConcurrentQueue<(LogLevel Level, string Message)> logList = new();
-        private static bool isLogging = false;
+        private ConcurrentQueue<(LogLevel Level, string Message)> logList = new();
+        private bool isLogging = false;
+        private string logPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs");
+        private string logFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs", "Log.txt");
 
-        public static void LogSystemMessage(LogLevel level, string message)
+        // LogMessage
+        public void LogSystemMessage(LogLevel level, string message)
         {
             logList.Enqueue((level, message));
             _ = StartLogging();
         }
 
-        private static async Task StartLogging()
+        // Start log method
+        private async Task StartLogging()
         {
             if (isLogging) return;
             isLogging = true;
@@ -33,10 +37,12 @@ namespace PicKeyFinder.Code.Modules
             isLogging = false;
         }
 
-        private static async Task WriteLogToFile(LogLevel level, string message)
+        // Start log message in File
+        private async Task WriteLogToFile(LogLevel level, string message)
         {
-            string logLine = $"{DateTime.Now}: [{level}] {message}{Environment.NewLine}";
-            await File.AppendAllTextAsync("log.txt", logLine);
+            string logLine = $"{DateTime.Now}: 【{level}]】{message}{Environment.NewLine}";
+            Directory.CreateDirectory(logPath);
+            await File.AppendAllTextAsync(logFilePath, logLine);
         }
     }
 }
