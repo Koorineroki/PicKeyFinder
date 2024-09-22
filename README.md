@@ -20,10 +20,9 @@ Introduce Lexi2PEngine Class as an encapsulation of details when calling functio
 Introduce SynonymFilter Class to match the obtained keywords with the vocabulary (unfinished).  
 Updated the functionality of SynonymFilters, added a Filter method for filtering words, and made the PickWords method more concise.  
 Implemented disk loading of dictionaries  
-
+Created Logger
 
 ## Plan To Do  
-- Logger.  
 - Image Selector  
 - http communication  
 
