@@ -1,15 +1,10 @@
 ﻿using JiebaNet.Analyser;
 using System.Diagnostics;
 
-namespace PicKeyFinder.Code.Modules
+namespace PicKeyFinder.Code.Utilities
 {
     internal static class DebugTools
     {
-        public enum Level
-        {
-
-        }
-
         // Run the method And Timing
         // No parameter And No return
         public static void RunWithTimer(Action action, out long executionTime)

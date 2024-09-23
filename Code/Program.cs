@@ -1,6 +1,6 @@
-﻿using System.Collections.Concurrent;
-using PicKeyFinder.Code.Modules;
-using System.Diagnostics;
+﻿using PicKeyFinder.Code.Core;
+using PicKeyFinder.Code.EngineManagement;
+using PicKeyFinder.Code.IO;
 
 namespace PicKeyFinder.Code
 {
@@ -10,25 +10,17 @@ namespace PicKeyFinder.Code
         {
             Logger.LogSystemMessage(LogLevel.None,"====================================================");
             Logger.LogSystemMessage(LogLevel.None,"System Start");
-            
-            var enginePool = new EnginePool(20);
+
+            var taskDistributor = new TaskDistributor(10);
+
             while (true)
             {
                 Console.WriteLine("请输入对话内容。");
                 string userDiscourse = Console.ReadLine() ?? string.Empty;
                 
-                string wl;
-                var engine = enginePool.GetEngine();
-                if (engine != null)
-                {
-                    wl = engine.Execute(userDiscourse);
-                    enginePool.ReturnEngine(engine);
-                }
-                else
-                {
-                    wl = "No Engine can use.";
-                }
-                
+                string wl = taskDistributor.StartTask(userDiscourse);
+
+
                 Console.WriteLine($"选取的关键词：{wl}");
                 // Context Segmentation
                 Console.WriteLine("====================================================");

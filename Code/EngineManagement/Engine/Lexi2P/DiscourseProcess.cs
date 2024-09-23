@@ -1,9 +1,10 @@
 ﻿using JiebaNet.Analyser;
+using PicKeyFinder.Code.Utilities;
 using System.Diagnostics;
 
-namespace PicKeyFinder.Code.Modules
+namespace PicKeyFinder.Code.EngineManagement.Engine.Lexi2P
 {
-    internal class UtteranceProcess
+    internal class DiscourseProcess
     {
         // Add extractor
         private TfidfExtractor extractor = new TfidfExtractor();

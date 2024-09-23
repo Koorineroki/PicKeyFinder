@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace PicKeyFinder.Code.Modules
+namespace PicKeyFinder.Code.IO
 {
     internal class Json2Dictionary
     {

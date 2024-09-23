@@ -1,6 +1,7 @@
 ﻿using JiebaNet.Analyser;
+using PicKeyFinder.Code.IO;
 
-namespace PicKeyFinder.Code.Modules
+namespace PicKeyFinder.Code.EngineManagement.Engine.Lexi2P
 {
     internal class SynonymFilters
     {

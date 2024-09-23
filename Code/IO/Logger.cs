@@ -1,6 +1,6 @@
 ﻿using System.Collections.Concurrent;
 
-namespace PicKeyFinder.Code.Modules
+namespace PicKeyFinder.Code.IO
 {
     public enum LogLevel
     {
@@ -20,7 +20,7 @@ namespace PicKeyFinder.Code.Modules
         public static void LogSystemMessage(LogLevel level, string message)
         {
             Console.WriteLine(message);
-            logList.Enqueue((level, message, "SystemLogs.txt"));
+            logList.Enqueue((level, message, "SystemLogs.log"));
             _ = StartLogging();
         }
 

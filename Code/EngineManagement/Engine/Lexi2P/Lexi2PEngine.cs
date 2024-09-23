@@ -1,24 +1,24 @@
-﻿using PicKeyFinder.Code.Modules;
+﻿using PicKeyFinder.Code.IO;
 
-namespace PicKeyFinder.Code
+namespace PicKeyFinder.Code.EngineManagement.Engine.Lexi2P
 {
     //Lexical to Picture Engine 
     public class Lexi2PEngine
     {
-        private UtteranceProcess processEngine = new UtteranceProcess();
+        private DiscourseProcess processEngine = new DiscourseProcess();
         private SynonymFilters synonymFilter = new SynonymFilters();
         public readonly int instanceIndex;
-        
+
         public Lexi2PEngine(int instanceIndex)
         {
             this.instanceIndex = instanceIndex;
-            Logger.LogSystemMessage(LogLevel.Info,$"Lexi2P Engine (No.{instanceIndex}) is Creat Now.");
+            Logger.LogSystemMessage(LogLevel.Info, $"Lexi2P Engine ({instanceIndex}) is Create Now.");
         }
 
         public Lexi2PEngine()
         {
-            this.instanceIndex = -1;
-            Logger.LogSystemMessage(LogLevel.Info,"Lexi2P Engine is Creat Now.");
+            instanceIndex = -1;
+            Logger.LogSystemMessage(LogLevel.Info, "Lexi2P Engine Create.");
         }
 
         // Start Execute
