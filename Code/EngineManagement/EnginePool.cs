@@ -20,7 +20,6 @@ public class EnginePool
         Logger.LogSystemMessage(LogLevel.Info, "EnginePool Initialization completed=================================================");
     }
 
-
     public Lexi2PEngine? GetEngine()
     {
         if (enginePool.TryDequeue(out var engine))

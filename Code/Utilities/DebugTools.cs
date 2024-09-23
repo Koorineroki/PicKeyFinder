@@ -47,9 +47,6 @@ namespace PicKeyFinder.Code.Utilities
         // Since WriteLine is not thread-safe, this method cannot be used on multiple threads.
         public static void OutputMessage(int textLength, long useTime, List<WordWeightPair> wordWeights)
         {
-            Console.WriteLine($"处理文字量：{textLength}");
-            Console.WriteLine($"分词所用时间: {useTime} 毫秒");
-            Console.WriteLine("提取的关键词及其权重并排序：");
             foreach (var word in wordWeights)
             {
                 Console.WriteLine($"【词语】：{word.Word}，\t【权重】：{word.Weight}");

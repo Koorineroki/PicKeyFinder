@@ -11,14 +11,14 @@ namespace PicKeyFinder.Code
             Logger.LogSystemMessage(LogLevel.None,"====================================================");
             Logger.LogSystemMessage(LogLevel.None,"System Start");
 
-            var taskDistributor = new TaskDistributor(10);
+            var taskDistributor = new TaskDistributor(5);
 
             while (true)
             {
                 Console.WriteLine("请输入对话内容。");
                 string userDiscourse = Console.ReadLine() ?? string.Empty;
                 
-                string wl = taskDistributor.StartTask(userDiscourse);
+                string wl = taskDistributor.AssignTask(userDiscourse);
 
 
                 Console.WriteLine($"选取的关键词：{wl}");

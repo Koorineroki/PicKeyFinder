@@ -1,4 +1,5 @@
 ﻿using PicKeyFinder.Code.EngineManagement;
+using PicKeyFinder.Code.IO;
 
 namespace PicKeyFinder.Code.Core
 {
@@ -11,14 +12,18 @@ namespace PicKeyFinder.Code.Core
             enginePool = new EnginePool(engineCount);
         }
 
-        public string StartTask(string userDiscourse)
+        public string AssignTask(string userDiscourse)
         {
             var engine = enginePool.GetEngine();
             if (engine != null)
             {
-                return engine.Execute(userDiscourse);
+                var re = engine.Execute(userDiscourse, true);
+                enginePool.ReturnEngine(engine);
+                return re;
             }
-            return "No Engine can use";
+            Logger.LogSystemMessage(LogLevel.Error, "No available Engine to assign task.");
+            
+            return "No available Engine to use.";
         }
     }
 }
