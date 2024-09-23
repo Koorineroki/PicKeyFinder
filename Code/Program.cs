@@ -1,4 +1,5 @@
-﻿using PicKeyFinder.Code.Modules;
+﻿using System.Collections.Concurrent;
+using PicKeyFinder.Code.Modules;
 using System.Diagnostics;
 
 namespace PicKeyFinder.Code
@@ -7,18 +8,27 @@ namespace PicKeyFinder.Code
     {
         static void Main(string[] args)
         {
-            Lexi2PEngine engine = new Lexi2PEngine();
-            var logger = new Logger();
-
+            Logger.LogSystemMessage(LogLevel.None,"====================================================");
+            Logger.LogSystemMessage(LogLevel.None,"System Start");
+            
+            var enginePool = new EnginePool(20);
             while (true)
             {
                 Console.WriteLine("请输入对话内容。");
                 string userDiscourse = Console.ReadLine() ?? string.Empty;
-
-
-                // HACK: 临时方案，在未来需要改用对象池进行对象的复用。
-                var wl = engine.Execute(userDiscourse);
-
+                
+                string wl;
+                var engine = enginePool.GetEngine();
+                if (engine != null)
+                {
+                    wl = engine.Execute(userDiscourse);
+                    enginePool.ReturnEngine(engine);
+                }
+                else
+                {
+                    wl = "No Engine can use.";
+                }
+                
                 Console.WriteLine($"选取的关键词：{wl}");
                 // Context Segmentation
                 Console.WriteLine("====================================================");

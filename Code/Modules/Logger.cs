@@ -10,28 +10,29 @@ namespace PicKeyFinder.Code.Modules
         Error
     }
 
-    internal class Logger
+    internal static class Logger
     {
-        private ConcurrentQueue<(LogLevel Level, string Message, string FileName)> logList = new();
-        private bool isLogging = false;
-        private string logPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs");
+        private static ConcurrentQueue<(LogLevel Level, string Message, string FileName)> logList = new();
+        private static bool isLogging = false;
+        private static string logPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs");
 
-        // LogMessage
-        public void LogSystemMessage(LogLevel level, string message)
+        // Log System Message
+        public static void LogSystemMessage(LogLevel level, string message)
         {
+            Console.WriteLine(message);
             logList.Enqueue((level, message, "SystemLogs.txt"));
             _ = StartLogging();
         }
 
-        // LogMessage
-        public void LogMessage(string message, string fileName)
+        // Log Message
+        public static void LogMessage(string message, string fileName)
         {
             logList.Enqueue((LogLevel.None, message, fileName));
             _ = StartLogging();
         }
 
         // Start log method
-        private async Task StartLogging()
+        private static async Task StartLogging()
         {
             if (isLogging) return;
             isLogging = true;
@@ -45,7 +46,7 @@ namespace PicKeyFinder.Code.Modules
         }
 
         // Start log message in File
-        private async Task WriteLogToFile(LogLevel level, string message, string filename)
+        private static async Task WriteLogToFile(LogLevel level, string message, string filename)
         {
             Directory.CreateDirectory(logPath);
             var logFilePath = Path.Combine(logPath, filename);
