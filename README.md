@@ -21,7 +21,11 @@ Introduce SynonymFilter Class to match the obtained keywords with the vocabulary
 Updated the functionality of SynonymFilters, added a Filter method for filtering words, and made the PickWords method more concise.  
 Implemented disk loading of dictionaries  
 - R6.09.22:  
-Created Logger
+Created Logger  
+- R6.09.23  
+  Updated the Logger code to make it a static class.  
+  Updated Lexi2Engine and added the instanceIndex property  
+  Added the EnginePool class. Now you can use the object pool to manage the engine!  
 
 ## Plan To Do  
 - Image Selector  
