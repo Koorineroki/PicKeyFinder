@@ -14,7 +14,7 @@ namespace PicKeyFinder.Code.IO
     {
         private static ConcurrentQueue<(LogLevel Level, string Message, string FileName)> logList = new();
         private static bool isLogging = false;
-        private static string logPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs");
+        public static readonly string logPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs");
 
         // Log System Message
         public static void LogSystemMessage(LogLevel level, string message)

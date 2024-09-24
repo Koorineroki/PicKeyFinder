@@ -1,5 +1,7 @@
-﻿using PicKeyFinder.Code.Core;
-using PicKeyFinder.Code.EngineManagement;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using PicKeyFinder.Code.Core;
 using PicKeyFinder.Code.IO;
 
 namespace PicKeyFinder.Code
@@ -8,24 +10,36 @@ namespace PicKeyFinder.Code
     {
         static void Main(string[] args)
         {
-            Logger.LogSystemMessage(LogLevel.None,"====================================================");
-            Logger.LogSystemMessage(LogLevel.None,"System Start");
+            Logger.LogSystemMessage(LogLevel.None, "====================================================");
+            Logger.LogSystemMessage(LogLevel.None, "System Start");
 
+
+            var builder = WebApplication.CreateBuilder(args);
             var taskDistributor = new TaskDistributor(5);
+            builder.Services.AddSingleton(taskDistributor);
 
-            while (true)
+            builder.WebHost.ConfigureKestrel(options =>
             {
-                Console.WriteLine("请输入对话内容。");
-                string userDiscourse = Console.ReadLine() ?? string.Empty;
-                
-                string wl = taskDistributor.AssignTask(userDiscourse);
+                options.ListenAnyIP(4988);  // 监听端口
+            });
 
+            //builder.Logging.ClearProviders(); // 清除默认的日志提供者
+            //builder.Logging.AddConsole();     // 添加控制台日志
+            //builder.Logging.SetMinimumLevel(LogLevel.Warning); // 设置最小日志级别为 Warning
 
-                Console.WriteLine($"选取的关键词：{wl}");
-                // Context Segmentation
-                Console.WriteLine("====================================================");
-                Console.WriteLine();
-            }
+            // 添加控制器服务
+            builder.Services.AddControllers();
+
+            var app = builder.Build();
+
+            // 配置HTTP请求管道
+            // app.UseHttpsRedirection();
+            app.UseAuthorization();
+            app.MapControllers(); // 映射控制器路由
+
+            Console.WriteLine("Pregame is running");
+            app.Run();
         }
     }
+
 }

@@ -3,7 +3,7 @@ using PicKeyFinder.Code.IO;
 
 namespace PicKeyFinder.Code.Core
 {
-    internal class TaskDistributor
+    public class TaskDistributor
     {
         private EnginePool enginePool;
 
@@ -21,8 +21,8 @@ namespace PicKeyFinder.Code.Core
                 enginePool.ReturnEngine(engine);
                 return re;
             }
+
             Logger.LogSystemMessage(LogLevel.Error, "No available Engine to assign task.");
-            
             return "No available Engine to use.";
         }
     }

@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="jieba.NET" Version="0.42.2" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.8" />
   </ItemGroup>
 
 </Project>
