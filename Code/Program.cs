@@ -12,10 +12,26 @@ namespace PicKeyFinder.Code
         {
             Logger.LogSystemMessage(LogLevel.None, "====================================================");
             Logger.LogSystemMessage(LogLevel.None, "System Start");
+            
+            Console.WriteLine("デバッグモードを有効にしますか?（y/N）");
 
+            var debugMode = Console.ReadLine() ?? string.Empty;
+            debugMode = debugMode.ToLower();
+            var debug = false;
+            
+            if (debugMode == "y" || debugMode == "yes")
+            {
+                debug = true;
+                Console.WriteLine("DebugMode: On.");
+            }
+            else
+            {
+                debug = false;
+                Console.WriteLine("DebugMode: off");
+            }
 
             var builder = WebApplication.CreateBuilder(args);
-            var taskDistributor = new TaskDistributor(5);
+            var taskDistributor = new TaskDistributor(5,debug);
             builder.Services.AddSingleton(taskDistributor);
 
             builder.WebHost.ConfigureKestrel(options =>

@@ -6,9 +6,11 @@ namespace PicKeyFinder.Code.Core
     public class TaskDistributor
     {
         private EnginePool enginePool;
+        private bool debug;
 
-        public TaskDistributor(int engineCount)
+        public TaskDistributor(int engineCount,bool debug)
         {
+            this.debug = debug;
             enginePool = new EnginePool(engineCount);
         }
 
@@ -17,7 +19,7 @@ namespace PicKeyFinder.Code.Core
             var engine = enginePool.GetEngine();
             if (engine != null)
             {
-                var re = engine.Execute(userDiscourse, true);
+                var re = engine.Execute(userDiscourse, debug);
                 enginePool.ReturnEngine(engine);
                 return re;
             }
