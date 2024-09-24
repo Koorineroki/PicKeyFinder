@@ -64,7 +64,7 @@
                     returnPic = picList_1[index];
                     break;
 
-                case "文化节":
+                case "种植":
                     index = random.Next(picList_2.Count);
                     returnPic = picList_2[index];
                     break;
@@ -74,7 +74,7 @@
                     returnPic = picList_3[index];
                     break;
 
-                case "种植":
+                case "文化节":
                     index = random.Next(picList_4.Count);
                     returnPic = picList_4[index];
                     break;
