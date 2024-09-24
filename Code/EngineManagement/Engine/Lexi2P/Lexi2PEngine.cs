@@ -9,6 +9,8 @@ namespace PicKeyFinder.Code.EngineManagement.Engine.Lexi2P
     {
         private DiscourseProcess processEngine = new DiscourseProcess();
         private SynonymFilters synonymFilter = new SynonymFilters();
+        private PickSelector pickSelector = new();
+        
         public readonly int instanceIndex;
         private readonly string logPath;
 
@@ -58,6 +60,8 @@ namespace PicKeyFinder.Code.EngineManagement.Engine.Lexi2P
             // Pick Words
             var wordWeights = processEngine.GetKeyWordWeights(utterance);
             var pickWord = synonymFilter.PickWords(wordWeights);
+            var imgMD = $"![image]({pickSelector.PickPic(pickWord)})\n";
+            returnText += imgMD;
 
             if (debug)
             {
