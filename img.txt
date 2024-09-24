@@ -34,3 +34,54 @@ https://www.freeimg.cn/i/2024/09/24/66f22d786ab1b.webp
 
 error
 https://www.freeimg.cn/i/2024/09/24/66f22dc21882d.webp
+
+
+
+
+// 媒体站
+        var picList_1 = new List<string>()
+        {
+            "https://www.freeimg.cn/i/2024/09/24/66f22beb7a257.webp",
+            "https://www.freeimg.cn/i/2024/09/24/66f22beb84f56.webp",
+            "https://www.freeimg.cn/i/2024/09/24/66f22bebe73a5.webp",
+            "https://www.freeimg.cn/i/2024/09/24/66f22bebd6bc0.webp",
+            "https://www.freeimg.cn/i/2024/09/24/66f22bec5e358.webp",
+            "https://www.freeimg.cn/i/2024/09/24/66f22bec56e26.webp"
+        }
+        // 种植
+        var picList_2 = new List<string>()
+        {
+            "https://www.freeimg.cn/i/2024/09/24/66f22ce567bd1.webp",
+            "https://www.freeimg.cn/i/2024/09/24/66f22ce25985e.webp",
+            "https://www.freeimg.cn/i/2024/09/24/66f22ce25f969.webp",
+            "https://www.freeimg.cn/i/2024/09/24/66f22ce25f252.webp",
+            "https://www.freeimg.cn/i/2024/09/24/66f22ce2831bd.webp",
+            "https://www.freeimg.cn/i/2024/09/24/66f22ce222911.webp",
+            "https://www.freeimg.cn/i/2024/09/24/66f22ce258ece.webp",
+            "https://www.freeimg.cn/i/2024/09/24/66f22ce2488ab.webp"
+        }
+        // 永生
+        var picList_3 = new List<string>()
+        {
+            "https://www.freeimg.cn/i/2024/09/24/66f22d48ee08b.webp",
+            "https://www.freeimg.cn/i/2024/09/24/66f22d4a54d75.webp",
+            "https://www.freeimg.cn/i/2024/09/24/66f22d4a0f8a9.webp",
+            "https://www.freeimg.cn/i/2024/09/24/66f22d48e7996.webp",
+            "https://www.freeimg.cn/i/2024/09/24/66f22d4a50683.webp",
+            "https://www.freeimg.cn/i/2024/09/24/66f22d49eb0fa.webp",
+            "https://www.freeimg.cn/i/2024/09/24/66f22d4a67198.webp",
+            "https://www.freeimg.cn/i/2024/09/24/66f22d4a28529.webp"
+        }
+        // 文化节
+        var picList_4 = new List<string>()
+        {
+            "https://www.freeimg.cn/i/2024/09/24/66f22d7757281.webp",
+            "https://www.freeimg.cn/i/2024/09/24/66f22d789e26b.webp",
+            "https://www.freeimg.cn/i/2024/09/24/66f22d77bbddc.webp",
+            "https://www.freeimg.cn/i/2024/09/24/66f22d786ab1b.webp"
+        }
+        // Error
+        var picList_5 = new List<string>()
+        {
+            "https://www.freeimg.cn/i/2024/09/24/66f22dc21882d.webp",
+        }
