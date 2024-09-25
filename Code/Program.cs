@@ -39,6 +39,7 @@ namespace PicKeyFinder.Code
                 options.ListenAnyIP(4988);  // 监听端口
             });
 
+            //这部分是调整HTTP模块的输出的
             //builder.Logging.ClearProviders(); // 清除默认的日志提供者
             //builder.Logging.AddConsole();     // 添加控制台日志
             //builder.Logging.SetMinimumLevel(LogLevel.Warning); // 设置最小日志级别为 Warning
