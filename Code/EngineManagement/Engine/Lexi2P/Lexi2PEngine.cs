@@ -10,7 +10,7 @@ namespace PicKeyFinder.Code.EngineManagement.Engine.Lexi2P
         private DiscourseProcess processEngine = new DiscourseProcess();
         private SynonymFilters synonymFilter = new SynonymFilters();
         private PickSelector pickSelector = new();
-        
+
         public readonly int instanceIndex;
         private readonly string logPath;
 
@@ -31,7 +31,9 @@ namespace PicKeyFinder.Code.EngineManagement.Engine.Lexi2P
 
             //Log Message
             Logger.LogMessage($"【{DateTime.Now}】Lexi2P Engine ( {instanceIndex}) is being worked on this task.\n", logPath);
+            Logger.LogMessage("Input Message////////////////////////////////////////////", logPath);
             Logger.LogMessage(utterance + "\n", logPath);
+            Logger.LogMessage("////////////////////////////////////////////Input Message", logPath);
 
             // Run CoreLogic
             returnText = CoreLogic(utterance, debug);
