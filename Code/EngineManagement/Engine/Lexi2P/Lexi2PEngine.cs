@@ -65,15 +65,11 @@ namespace PicKeyFinder.Code.EngineManagement.Engine.Lexi2P
 
             if (debug)
             {
-                // HAKC:
                 returnText += Logging(wordWeights, pickWord);
             }
             else
             {
                 Logging(wordWeights, pickWord);
-
-                // HAKC:
-                returnText = pickWord;
             }
 
             return returnText;
