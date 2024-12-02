@@ -1,3 +1,8 @@
+# Please note  
+This code base was created in a short period of time without considering maintainability in order to complete a project suddenly proposed by the school. This code is more for personal learning and storage. I don't think it will be of value to you for reference or actual use.  
+  
+这个代码库是在短时间不考虑维护性，为了完成学校突然提出的项目而制作的，本代码更多用于个人学习以及储存使用，我不认为对您会有参考学习或是实际使用的价值。  
+
 # PicKeyFinder
 This is the code for the Mars Base project, in which users provide corresponding pictures when communicating with Ai.
 
