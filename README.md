@@ -32,9 +32,5 @@ Created Logger
   Updated Lexi2Engine and added the instanceIndex property  
   Added the EnginePool class. Now you can use the object pool to manage the engine!  
 
-## Plan To Do  
-- Image Selector  
-- http communication  
-
 ## Third-party libraries used
 - **[jieba.NET](https://github.com/anderscui/jieba.NET)** - Licensed under the MIT License.
